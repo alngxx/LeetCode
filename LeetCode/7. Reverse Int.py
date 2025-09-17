@@ -9,7 +9,7 @@ class Solution:
         res = 0
 
         while x:
-            mod = x % 10  # Get last digit
+            mod = x % 10  # Extract last digit
             x = x // 10  # Remove last digit
 
             # Build reversed integer
