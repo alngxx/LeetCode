@@ -6,5 +6,4 @@ class Solution:
             if power == n:
                 return True
             power *= 3
-
         return False
