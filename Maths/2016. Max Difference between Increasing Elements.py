@@ -2,7 +2,6 @@ class Solution:
     def maximumDifference(self, nums: List[int]) -> int:
         '''
         Intuition
-
         Keep track of the smallest number seen so far while moving through the array.
         At each step, we check if current number (nums[i]) >= min and nums[i] - min largest
         If not, we update the min = nums[i]
