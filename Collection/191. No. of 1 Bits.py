@@ -14,10 +14,10 @@ class Solution:
         for i in range(32):
             # Right shift n by i bits, then check the least significant bit
             # (n >> i) shifts the binary representation to the right
+            # If (n >> i) means shifting until n = 00...00
             # & 1 extracts the last bit (0 or 1): 1 = 00...001
             if (n >> i) & 1:
                 # If the bit is 1, increment the counter
                 res += 1
 
         return res
-       
