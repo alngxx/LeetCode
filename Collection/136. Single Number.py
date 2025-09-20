@@ -4,10 +4,10 @@ class Solution:
         # set_nums = set(nums)
         # return 2*sum(set_nums) - sum(nums)
 
-        ''' 2nd solution: Using ^ -> O(n)
+        """ 2nd solution: Using ^ -> O(n)
         XOR of two same numbers is 0.
         Since all numbers appear twice except one, XOR the whole array gives the single number
-        '''
+        """
 
         res = 0
         # XOR the whole array
