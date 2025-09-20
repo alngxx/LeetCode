@@ -15,6 +15,7 @@ class Solution:
             # Build reversed integer
             res = res * 10 + mod
 
+            # Ensure reversing do not exceed 32-bit range
             if res > 2 ** 31 - 1:
                 return 0
 
