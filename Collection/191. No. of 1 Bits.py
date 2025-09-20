@@ -10,11 +10,10 @@ class Solution:
         '''
 
         res = 0
-        # Iterate over all 32 bits of the integer
+        # Loop through 32 bits of the integer: 0 -> 31
         for i in range(32):
-            # Right shift n by i bits, then check the least significant bit
             # (n >> i) shifts the binary representation to the right
-            # If (n >> i) means shifting until n = 00...00
+            # "if (n >> i)" means shifting until n = 00...00
             # & 1 extracts the last bit (0 or 1): 1 = 00...001
             if (n >> i) & 1:
                 # If the bit is 1, increment the counter
