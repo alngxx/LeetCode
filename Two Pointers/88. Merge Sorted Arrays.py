@@ -19,7 +19,7 @@ class Solution:
                 nums1[k] = nums2[j]
                 j -= 1
 
-            # k decrease after every placement
+            # k decrease after every replacement
             k -= 1
 
         # Insert leftovers of nums2 into nums 1
