@@ -18,7 +18,7 @@ class Solution:
             else:
                 freq[num] = 1
 
-        # Return the key with count > n//2
+        # Return the key with count > n//21
         for num in freq:
             if freq[num] > n // 2:
                 return num
