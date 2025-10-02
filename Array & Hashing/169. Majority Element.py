@@ -12,13 +12,13 @@ class Solution:
 
         for num in nums:
             # If number seen in dict, increase its count by 1
-            if num in freq:
+            if num in freq.keys():
                 freq[num] += 1
             # If number never saw before, init its count = 1
             else:
                 freq[num] = 1
 
         # Return the key with count > n//21
-        for num in freq:
+        for num in freq.keys():
             if freq[num] > n // 2:
                 return num
