@@ -18,7 +18,7 @@ class Solution:
         if remove == 0:
             return head.next
 
-        # Link the previous node to next node after removed node
+        # Link previous node to next node after removed node
         nodes[remove - 1].next = nodes[remove].next
 
         return head
