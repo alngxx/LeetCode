@@ -12,3 +12,16 @@ class Solution:
         dummy = ListNode(0, head)
         prev = dummy
         cur = head
+
+        while cur and cur.next:
+            npn = cur.next.next
+            second = cur.next
+
+            # Swap
+            second.next = cur
+            cur.next = npn
+            prev.next = second
+
+            # Move to next pair
+            prev = cur
+            cur = npn
