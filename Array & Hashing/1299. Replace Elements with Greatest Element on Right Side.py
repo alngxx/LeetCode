@@ -9,7 +9,6 @@ class Solution:
         res = [-1] * n
         max_right = -1
 
-        # Last element res[n] already -1
         # Scan array backwards from index [n-1] to [0], update max_right as we scan
         for i in range(n - 1, -1, -1):
             res[i] = max_right
