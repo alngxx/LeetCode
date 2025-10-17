@@ -3,19 +3,8 @@ class Solution:
         m = len(haystack)
         n = len(needle)
 
-        # Loop through haystack
-        for i in range(m):
-            # Pointer k for needle
-            k = 0
-            # Pointer j in haystack
-            for j in range(i, m):
-                if haystack[j] == needle[k]:
-                    k += 1
-                # If found unmatched char, break, k reset to 0
-                else:
-                    break
-
-                # If hit end of needle while match substring, return i
-                if k == n:
-                    return i
+        # Loop through haystack from index 0 -> m-n to check if needle exists
+        for i in range(m - n + 1):
+            if haystack[i:i + n] == needle:
+                return i
         return -1
