@@ -1,8 +1,14 @@
 class Solution:
     def arrangeCoins(self, n: int) -> int:
         """
+        1. Brute force
+        i = 1
+        while n >= i:
+            n -= i
+            i += 1
+        return i-1
+        2. Binary Search: O(log n)
         Find k largest satisfies: k(k+1)/2 <= n
-        => Binary Search: O(log n)
         """
         left, right = 0, n
         while left <= right:
