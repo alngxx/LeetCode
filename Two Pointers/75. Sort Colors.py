@@ -1,27 +1,29 @@
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
-        Do not return anything, modify nums in-place instead.
+        Do not return anything, modify nums in-place instead
+        Time complexity: O(n)
         """
-        r = -1  # index of last red, init = None
-        u = 0  # index of current unchecked element, init = start
-        b = len(nums)  # index of first blue, init = end
+        low = 0  # index of last 0, init = 0
+        mid = 0  # index of current unchecked element, init = start
+        high = len(nums) - 1  # index of first 1, init = end
 
-        while u < b:
-            # If current element is red, swap to the end of "red region". Then move forwards to next unchecked element
-            if nums[u] == 0:
-                r += 1
-                nums[u], nums[r] = nums[r], nums[u]
-                u += 1
+        # Loop ends when mid > high. All elements before mid are 0 and 1, all elements from high are 2
+        while mid <= high:
+            # If current element = 0, swap to the end of "0 region". Then move forward to next unchecked element
+            if nums[mid] == 0:
+                nums[mid], nums[low] = nums[low], nums[mid]
+                low += 1  # All elements before low = 0
+                mid += 1  # All elements before mid are checked, so move forward
 
-            # If current element is white, leave it and move forward
-            elif nums[u] == 1:
-                u += 1
+            # If current element = 1, leave it since 1 must be at the middle, need not to swap.
+            elif nums[mid] == 1:
+                mid += 1
 
-            # Else, current element is blue, swap it to the end of "blue region"
+            # Else, current element = 2 , swap it to the end of "2 region"
             else:
-                b -= 1
-                nums[u], nums[b] = nums[b], nums[u]
-                # Do not increment u since swapped element need to be checked
+                nums[mid], nums[high] = nums[high], nums[mid]
+                high -= 1
+                # Do not increment mid since swapped element not yet checked
 
         return nums
