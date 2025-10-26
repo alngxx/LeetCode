@@ -15,5 +15,4 @@ class Solution:
         if n % 2 == 1:
             mid = n // 2
             return total - mat[mid][mid]
-
         return total
