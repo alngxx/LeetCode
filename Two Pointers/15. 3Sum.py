@@ -4,7 +4,7 @@ class Solution:
         res = []
 
         # At every fixed element nums[i], assign two pointers j, k
-        for i in range(len(nums)):
+        for i in range(len(nums) - 2):
             if i > 0 and nums[i] == nums[i - 1]:  # Skip duplicates
                 continue
 
