@@ -16,7 +16,7 @@ class Solution:
             remain = limit - people[r]
             r -= 1
             count += 1
-            # If still enough weight for another person, increment left pointer.
+            # If still enough weight for another person, increment left pointer
             # Else, leave it and people[r] fit into one boat
             if l <= r and people[l] <= remain:
                 l += 1
