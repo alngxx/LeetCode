@@ -24,14 +24,14 @@ class Solution:
                 res.append(subset.copy())
                 return  # Return to previous decision
 
-            # Decision 1: INclude nums[i]
+            # Decision 1: Include nums[i]
             subset.append(nums[i])  # Add current number
             dfs(i + 1)  # Recurse to next index
 
             # Backtrack: remove added number
             subset.pop()
 
-            # Decision 2: EXclude nums[i]
+            # Decision 2: Exclude nums[i]
             dfs(i + 1)  # Skip current index
 
         # Start DFS from index 0
