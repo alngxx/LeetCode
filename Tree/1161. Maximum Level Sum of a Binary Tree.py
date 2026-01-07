@@ -30,6 +30,6 @@ class Solution:
             if max_sum < cur_sum:
                 max_sum, res = cur_sum, level
 
-            level += 1
+            level += 1  # move to next level
 
         return res
