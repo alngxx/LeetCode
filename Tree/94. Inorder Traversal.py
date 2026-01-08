@@ -13,11 +13,8 @@ class Solution:
             if not node:
                 return
 
-            # recursively traverse left subtree
             inorder(node.left)
-            # if node is None, append to res
             res.append(node.val)
-            # return to previous node, and recursively traverse its right
             inorder(node.right)
 
         inorder(root)
