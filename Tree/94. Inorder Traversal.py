@@ -9,6 +9,7 @@ class Solution:
         res = []  # Store nodes inorder
 
         def inorder(node):
+            # E.g. If node.left is None, return inorder(node) to process next (res.append(node.val))
             if not node:
                 return
 
