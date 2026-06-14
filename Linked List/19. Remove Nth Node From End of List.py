@@ -1,46 +1,26 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        # Sol 1: Linked List -> Array
-        nodes = []
-        cur = head
-        while cur:
-            nodes.append(cur)
-            cur = cur.next
-        # From now, nodes is a list stores references to each node in LL
-        remove_index = len(nodes) - n
-        # Special case: If removeIndex is head, return head.next as new head
-        if remove_index == 0:
-            return head.next
-
-        # Link previous node to next node after removed node
-        nodes[remove_index - 1].next = nodes[remove_index].next
-
-        return head
-
-        # Sol 2: Modify in-place
-
-
-class Solution:
-    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        dummy = ListNode(0, head)  # Create dummy always point to head in case we remove head
+        """ Two Pointers:
+        Goal is to make second land on the (n+1) node from the end (right BEFORE target)
+        1. first = second = head
+        2. Move first to the (n+1) node from start
+        3. Then move second along with first
+        4. When first.next = None, second = (n+1) node from the end
+        5. Remove target: second.next = second.next.next
+        """
+        dummy = ListNode(0, head)   # dummy.next = head in case head is removed
         first = second = dummy
 
-        # Move first to (n+1)th_node from start
-        for _ in range(1, n + 1):
+        # Move first to (n+1) node from start (dummy) -- loop n times
+        for _ in range(1, n+1):
             first = first.next
 
-        # When first reach the end, second is right before the node we want to remove
+        # When first reach end (first.next = None), second land on the (n+1) node from end
         while first.next:
-            first = first.next  # first.next = None
-            second = second.next  # second = (n-1)th_node from the end now
+            first = first.next
+            second = second.next
 
-        # Remove nth_node from the end
-        second.next = second.next.next
+        # Now: first.next = None, second.next = target
+        second.next = second.next.next      # remove target
 
         return dummy.next
