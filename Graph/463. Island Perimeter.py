@@ -1,5 +1,5 @@
 class Solution:
-    def islandPerimeter(self, grid: List[List[int]]) -> int:
+    def islandPerimeter(self, grid: list[list[int]]) -> int:
         """ Grid Traversal: O(m * n), O(1)
         1. Scan every cell in the grid
         2. If cell is land, add 4 (all sides count as perimeter)
