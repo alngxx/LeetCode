@@ -5,22 +5,27 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+    def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
+        """ Same as BFS + Queue - Leetcode 102
+        Just return res[::-1]
+        """
+        if not root:
+            return []
+        
         res = []
         q = deque([root])
 
-        # calculate average of each level by BFS
         while q:
-            cur_sum = 0                   # sum of current level
-            nodes = len(q)                # number of nodes this level
-            for _ in range(nodes):
+            cur_level = []
+            for _ in range(len(q)):
                 node = q.popleft()
-                cur_sum += node.val
+                cur_level.append(node.val)
 
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            
-            res.append(cur_sum / nodes)
-        return res
+                    
+            res.append(cur_level)
+        
+        return res[::-1]

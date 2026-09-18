@@ -8,24 +8,24 @@ class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root:
             return []
-
+            
         res = []
-        q = collections.deque()
-        q.append(root)
-
-        # While queue is not empty (still have unprocessed nodes)
+        q = deque([root])
+        
         while q:
             cur_level = []
-            # Iterate all nodes in current level
+            
+            # iterate through all nodes at current level
             for _ in range(len(q)):
                 node = q.popleft()
                 cur_level.append(node.val)
 
-                # Enqueue left/right child if exist
+                # add nodes at lower level into queue
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
 
             res.append(cur_level)
+        
         return res
