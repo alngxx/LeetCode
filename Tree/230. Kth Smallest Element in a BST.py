@@ -1,20 +1,21 @@
 class Solution:
-    def kthSmallest(self, root: TreeNode | None, k: int) -> int:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         """ In-order Traversal: O(n), O(h)
-        -  BST has: left < root < right
-        -  Thus, in-order(left -> root -> right) gives nodes in ascending order
-        - Return k-th node while traverse
+        1. BST: left < root < right
+        2. Thus, in-order traversal give nodes in ascending order
+        3. So we return k-th node while traverse
+        4. Init res, count (global variable)
+        5. When count == k, return res
         """
-        count = res = 0 
-        def dfs(node):
-            nonlocal count
-            nonlocal res
+        res = count = 0
 
-            # stop when res is found
-            if not node or res:
+        def dfs(node):
+            nonlocal res, count
+
+            # stop when found res or null node
+            if not node or res != 0:
                 return
-            
-            # in-order traversal
+
             dfs(node.left)
             count += 1
             if count == k:
